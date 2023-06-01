@@ -52,6 +52,7 @@ body{
     margin-bottom: 75px;
     text-align: center;
     max-width: 200px;
+    height: fit-content;
     overflow: hidden;
 
 }
@@ -62,6 +63,7 @@ body{
     margin-bottom: 75px;
     text-align: center;
     max-width: 200px;
+    height: fit-content;
     overflow: hidden;
 
 }
@@ -251,7 +253,7 @@ td {
       order: 2;
       position: absolute;
       left: 25%;
-      bottom: 3%;
+      bottom: 1%;
     }
   
     .playerSection2 {
@@ -259,7 +261,7 @@ td {
       position: absolute;
 
       right: 25%;
-      bottom: 3%;
+      bottom: 1%;
     }
     
   
@@ -311,13 +313,13 @@ td {
 @media (max-width: 740px) {
     .playerSection1 {
         left: 20%;
-        bottom: 2%;
+        bottom: 1%;
       }
     
       .playerSection2 {
   
         right: 20%;
-        bottom: 2%;
+        bottom: 1%;
       }
 }
 
