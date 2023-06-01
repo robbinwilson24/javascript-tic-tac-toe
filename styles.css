@@ -103,6 +103,7 @@ filter: opacity(.7);
 
 .gameBoardSection {
     width: fit-content;
+    margin-top: -25px;
     border-radius: 10px;
     padding: 20px;
     border-spacing: 0;
