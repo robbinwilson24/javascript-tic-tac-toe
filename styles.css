@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&display=swap');
 
-body{
+body {
     background: linear-gradient(175deg, rgba(185, 34, 34, .6), rgba(201, 101, 116, .6), rgba(57, 102, 121, .6), rgba(96, 155, 139, .6), rgba(174, 179, 123, .6), rgba(239, 211, 96, .6), rgba(128, 87, 188, .6), rgba(214, 165, 77, .6));
     background-size: 400% 400%;
-	animation: gradient 25s ease infinite;
+    animation: gradient 25s ease infinite;
     font-family: 'Fredoka', sans-serif;
     display: flex;
     flex-direction: column;
@@ -14,15 +14,17 @@ body{
 
 @keyframes gradient {
     0% {
-      background-position: 0% 50%;
+        background-position: 0% 50%;
     }
+
     50% {
-      background-position: 100% 50%;
+        background-position: 100% 50%;
     }
+
     100% {
-      background-position: 0% 50%;
+        background-position: 0% 50%;
     }
-  }
+}
 
 .headingImage {
     width: 80px;
@@ -54,6 +56,7 @@ body{
     max-width: 200px;
     height: fit-content;
     overflow: hidden;
+    z-index: 90;
 
 }
 
@@ -65,6 +68,7 @@ body{
     max-width: 200px;
     height: fit-content;
     overflow: hidden;
+    z-index: 91;
 
 }
 
@@ -72,25 +76,33 @@ body{
     font-size: .85rem;
 }
 
-.editName   {
+.editName{
+    font-size: 1rem;
+}
+
+.editName {
     margin-left: 15px;
     cursor: pointer;
 }
 
-.editName:hover   {
-filter: opacity(.7);
+.editName:hover {
+    filter: opacity(.7);
 }
 
 .imgSection1 {
-    margin: 10px;
     width: 100px;
     height: 100px;
+    margin: -5px;
+    margin-top: -10px;
+
 }
 
 .imgSection2 {
-    margin: 10px;
     width: 100px;
     height: 100px;
+    margin: -5px;
+    margin-top: -10px;
+
 }
 
 .currentPlayerTurn {
@@ -179,7 +191,8 @@ td {
     font-weight: 500;
     font-size: 1rem;
     cursor: pointer;
-    font-family: 'Fredoka', sans-serif;;
+    font-family: 'Fredoka', sans-serif;
+    z-index: 100;
 }
 
 .newGameButton:hover {
@@ -221,152 +234,154 @@ td {
     background-color: rgba(207, 201, 25, 0.5);
     transition: .3s;
     transform: scale(1.05);
-    border-radius: 6px; 
+    border-radius: 6px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 990px) {
     body {
-      background-size: 400% 500%;
-      animation: gradient 25s ease infinite;
+        background-size: 400% 500%;
+        animation: gradient 25s ease infinite;
     }
-  
-    header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-  
-    .fullGameContainer {
-      flex-direction: column;
-      align-items: center;
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-  
-    .gameOuterContainer {
-      order: 1;
-      margin-bottom: 20px;
-      margin-top: -15px;
-    }
-  
-    .playerSection1 {
-      order: 2;
-      position: absolute;
-      left: 25%;
-      bottom: 1%;
-    }
-  
-    .playerSection2 {
-      order: 3;
-      position: absolute;
 
-      right: 25%;
-      bottom: 1%;
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
     }
-    
-  
+
+    .fullGameContainer {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .gameOuterContainer {
+        order: 1;
+        margin-bottom: 20px;
+        margin-top: -15px;
+    }
+
+    .playerSection1 {
+        order: 2;
+        position: absolute;
+        left: 25%;
+        bottom: 1%;
+    }
+
+    .playerSection2 {
+        order: 3;
+        position: absolute;
+
+        right: 25%;
+        bottom: 1%;
+    }
+
+
     .newGameButton {
-      order: 4;
-      margin-top: 15px;
-      padding-top: 7px;
-      padding-bottom: 5px;
-      padding-left: 20px;
-      padding-right: 20px;
-      font-size: .9rem;
+        order: 4;
+        margin-top: 15px;
+        padding-top: 7px;
+        padding-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: .8rem;
     }
-  
+
     .gameBoardSection {
-      padding: 10px;
+        padding: 10px;
     }
-  
+
     .gameCell {
-      min-width: 80px;
-      height: 80px;
+        min-width: 80px;
+        height: 80px;
     }
 
     .displayedName {
         font-size: .95rem;
     }
+
     .imgSection1 {
         width: 80px;
         height: 80px;
     }
-    
+
     .imgSection2 {
         width: 80px;
         height: 80px;
     }
-    
+
 
     .gameCell img {
         max-width: 70px;
         max-height: 70px;
-      }
+    }
 
-      .currentPlayerTurn{
+    .currentPlayerTurn {
         transform: scale(1.03);
         margin-top: 20px;
     }
 }
-  
-  
+
+
 @media (max-width: 741px) {
     .playerSection1 {
         left: 20%;
         bottom: -2%;
-      }
+    }
 
-      .gameBoardSection {
+    .gameBoardSection {
         margin-top: -5px;
-      }
-    
-      .playerSection2 {
-  
+    }
+
+    .playerSection2 {
+
         right: 20%;
         bottom: -2%;
-      }
+    }
 }
 
 @media (max-width: 580px) {
     .playerSection1 {
         left: 15%;
-      }
-    
-      .playerSection2 {
-  
+    }
+
+    .playerSection2 {
+
         right: 15%;
-      }
+    }
 }
 
 @media (max-width: 420px) {
     .playerSection1 {
         left: 5%;
-      }
-    
-      .playerSection2 {
-  
+    }
+
+    .playerSection2 {
+
         right: 5%;
-      }
+    }
 }
 
 @media (max-height: 750px) and (max-width: 400px) {
 
 
-      .headingImage {
+    .headingImage {
         width: 70px;
         height: auto;
         margin-bottom: -15px;
         margin-top: -5px;
 
     }
+
     .newGameButton {
         padding-top: 6px;
         padding-bottom: 4px;
-        padding-left: 20px;
-        padding-right: 20px;
-        font-size: .9rem;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: .8rem;
         margin-top: 10px;
     }
 
@@ -379,12 +394,11 @@ td {
         bottom: 0;
         top: 35%;
 
-      }
-    
-      .playerSection2 {
+    }
+
+    .playerSection2 {
         right: 5%;
         bottom: 0;
         top: 35%;
-      }
-  }
-  
+    }
+}

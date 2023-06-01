@@ -13,6 +13,7 @@ let player1Section = document.querySelector(".playerSection1");
 let gameStarted = false;
 let gameOver = false;
 
+//An array of winnign combinations
 const winningCombinations = [
     [1, 2, 3],
     [4, 5, 6],
@@ -24,22 +25,22 @@ const winningCombinations = [
     [3, 5, 7]
 ]
 
-
-
-
-
+// variable that will be updated with whose turn it is. 
 let currentTurn;
 
-
+//Arrays for the user choices to be sent to, each square in the tictactoe board has a value, these will be used to check for winning combinations 
 let player1Array = [];
 let player2Array = [];
 
 
+//A function to reset the game and start a new game. 
 function newGame() {
 
+    //generate a random number to determine who starts
     let randomNum = Math.random();
 
     gameOver = false;
+    //reset classlists to default
     player1Section.classList.remove("winningPlayer");
     player2Section.classList.remove("winningPlayer");
     player1Section.classList.remove("gameDrawn");
@@ -47,18 +48,19 @@ function newGame() {
     player1Section.classList.remove("currentPlayerTurn");
     player2Section.classList.remove("currentPlayerTurn");
 
-
-
+    //Remove messages from player sections and clear arrays 
     player1Turn.textContent = "";
     player2Turn.textContent = "";
     player1Array = [];
     player2Array = [];
 
+    // clear the game board and any winning cell styling
     for (let cell of gameCell) {
         cell.innerHTML = "";
         cell.classList.remove("winningCell");
     }
-
+//conditional checks the random number, to determine who starts the game , 
+//Relevant player has styles updated around name and has message pop up saying "your turn" 
     if (randomNum < 0.5) {
         currentTurn = "player1";
         player1Turn.textContent = "Your turn.";
@@ -70,12 +72,11 @@ function newGame() {
         player2Section.classList.add("currentPlayerTurn");
     }
 }
-
 newGameButton.addEventListener("click", newGame);
 
-
+//A function to determine if there has been a winner. 
 function checkWin() {
-    // Check if any winning combination is present in player1Array
+    // Checking if any winning combination is present in the player1Array
     for (let combination of winningCombinations) {
         let isWinningCombination = combination.every((cell) => player1Array.includes(cell));
         if (isWinningCombination) {
@@ -91,8 +92,8 @@ function checkWin() {
             player1Turn.textContent = "YOU WIN!.";
             player2Turn.textContent = "";
 
-
             gameOver = true;
+            //remove current turn classes from both players and add a winning player class to the winner (the same on both players)
             player1Section.classList.remove("currentPlayerTurn");
             player2Section.classList.remove("currentPlayerTurn");
             player1Section.classList.add("winningPlayer");
@@ -102,7 +103,7 @@ function checkWin() {
         }
     }
 
-    // Check if any winning combination is present in player2Array
+    // Checking  if any winning combination is present in the player2Array
     for (let combination of winningCombinations) {
         let isWinningCombination = combination.every((cell) => player2Array.includes(cell));
         if (isWinningCombination) {
@@ -115,7 +116,7 @@ function checkWin() {
             player2Turn.textContent = "";
             player1Turn.textContent = "";
 
-            // Show player 2 has won 
+            // Show that player 2 has won 
             player2Turn.textContent = "YOU WIN!.";
             player1Turn.textContent = "";
 
@@ -124,20 +125,19 @@ function checkWin() {
             player2Section.classList.remove("currentPlayerTurn");
             player2Section.classList.add("winningPlayer");
 
-
             return;
         }
     }
 
-    // If no winning combination is found and all cells are filled, it's a draw
+    // If no winning combination is found and all cells are filled, show it's a draw
     if (player1Array.length + player2Array.length === 9) {
+        //clear text from the players and add a class to show it is a draw 
         player2Turn.textContent = "";
         player1Turn.textContent = "";
         player2Turn.textContent = "It's a draw.";
         player1Turn.textContent = "It's a draw.";
         player1Section.classList.add("gameDrawn");
         player2Section.classList.add("gameDrawn");
-
 
         gameOver = true;
         player1Section.classList.remove("currentPlayerTurn");
@@ -147,8 +147,7 @@ function checkWin() {
     }
 }
 
-
-
+// Add an event listener to the game board cells that will add the relevant shape to the clicked cell based on whose turn it is. 
 for (let cell of gameCell) {
     cell.addEventListener("click", function () {
 
@@ -158,6 +157,7 @@ for (let cell of gameCell) {
         let player2Shape = document.createElement("img");
         player2Shape.src = "./assets/images/cross.png";
 
+        //if the game is over, end the function and do nothing.
         if (gameOver === true) {
             return
         }
@@ -168,6 +168,7 @@ for (let cell of gameCell) {
             if (cell.innerHTML === "") {
                 // If it is currently player1, then append p1 image to clicked cell,
                 // switch to other player
+                // add and remove necessary classes
                 if (currentTurn === "player1") {
                     cell.appendChild(player1Shape);
                     player1Array.push(Number(cell.getAttribute("value")));
@@ -176,6 +177,7 @@ for (let cell of gameCell) {
                     player1Section.classList.remove("currentPlayerTurn");
                     player2Turn.textContent = "Your turn.";
                     player1Turn.textContent = "";
+                    //Check for a winner
                     checkWin();
 
 
@@ -197,7 +199,7 @@ for (let cell of gameCell) {
 }
 
 
-
+// A function to allow users to change their name on the screen 
 function changeName() {
     let nameElement = this.parentNode;
     let currentName = nameElement.innerText;
@@ -208,15 +210,14 @@ function changeName() {
         return;
     }
 
-    newName = newName.trim().substring(0, 12); // Limit the user input name to 12 characters
+    // Limit the user input name to 12 characters and trim blank space
+    newName = newName.trim().substring(0, 12); 
 
+    //some defensive programming for if the name is blank 
     if (newName === "") {
         alert("Name cannot be blank. Please enter a valid name:");
     } else {
         nameElement.innerText = newName;
-
-        // Remove the existing click event listener
-        this.removeEventListener("click", changeName);
 
         // Create a new span with the updated functionality
         const newSpan = document.createElement("span");
