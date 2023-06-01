@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+
+    <header>
+        <img src="./assets/images/logo.png" alt="Tic Tac Toe Logo" class="headingImage">
+    </header>
+
+    <div class="fullGameContainer">
+
+        <section class="playerSection1">
+            <h2 class="displayedName">Player 1 <span class="editName" title="Edit name">&#x270E</span></h2>
+            <img src="./assets/images/circle.png" alt="Circle" class="imgSection1">
+            <div class="player1Turn"></div>
+
+        </section>
+
+
+        <div class="gameOuterContainer">
+            <div class="gameUpdates"></div>
+            <section class="gameBoardSection">
+                <table>
+                    <tr>
+                        <td class="gameCell gameCell1" value="1"></td>
+                        <td class="gameCell gameCell2" value="2"></td>
+                        <td class="gameCell gameCell3"value="3"></td>
+                    </tr>
+                    <tr>
+                        <td class="gameCell gameCell4"value="4"></td>
+                        <td class="gameCell gameCell5"value="5"></td>
+                        <td class="gameCell gameCell6"value="6"></td>
+                    </tr>
+                    <tr>
+                        <td class="gameCell gameCell7"value="7"></td>
+                        <td class="gameCell gameCell8"value="8"></td>
+                        <td class="gameCell gameCell9"value="9"></td>
+                    </tr>
+                </table>
+            </section>
+
+            <button class="newGameButton">NEW GAME</button>
+        </div>
+
+
+        <section class="playerSection2">
+            <h2 class="displayedName">Player 2 <span class="editName" title="Edit name">&#x270E</span></h2>
+            <img src="./assets/images/cross.png" alt="Cross" class="imgSection2">
+            <div class="player2Turn"></div>
+
+        </section>
+    </div>
+
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

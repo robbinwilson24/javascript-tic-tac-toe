@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&display=swap');
+
+body{
+    background: linear-gradient(175deg, rgba(185, 34, 34, .6), rgba(201, 101, 116, .6), rgba(57, 102, 121, .6), rgba(96, 155, 139, .6), rgba(174, 179, 123, .6), rgba(239, 211, 96, .6), rgba(128, 87, 188, .6), rgba(214, 165, 77, .6));
+    background-size: 400% 400%;
+	animation: gradient 25s ease infinite;
+    font-family: 'Fredoka', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 340px;
+
+}
+
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+.headingImage {
+    width: 85px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+
+}
+
+
+.fullGameContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding-top: 45px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+
+.playerSection1 {
+    padding: 20px;
+    margin-right: 60px;
+    margin-bottom: 75px;
+    text-align: center;
+    max-width: 200px;
+    overflow: hidden;
+
+}
+
+.playerSection2 {
+    padding: 20px;
+    margin-left: 60px;
+    margin-bottom: 75px;
+    text-align: center;
+    max-width: 200px;
+    overflow: hidden;
+
+}
+
+.displayedName {
+    font-size: .85rem;
+}
+
+.editName   {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.editName:hover   {
+filter: opacity(.7);
+}
+
+.imgSection1 {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.imgSection2 {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.currentPlayerTurn {
+    transition: 0.2s;
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.185);
+    border-radius: 6px;
+}
+
+
+.gameBoardSection {
+    width: fit-content;
+    border-radius: 10px;
+    padding: 20px;
+    border-spacing: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 0;
+    margin: 0;
+}
+
+
+.gameCell {
+    justify-content: center;
+    text-align: center;
+    min-width: 120px;
+    height: 120px;
+    transition: .2s;
+
+}
+
+.gameCell:hover {
+    background-color: rgba(228, 243, 255, 0.6);
+}
+
+.gameCell:active {
+    background-color: rgb(232, 239, 244);
+    transition: .05s;
+}
+
+.gameCell1 {
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+}
+
+.gameCell3 {
+    border-left: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
+.gameCell5 {
+    border: 5px solid black;
+}
+
+.gameCell7 {
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+}
+
+.gameCell9 {
+    border-top: 5px solid black;
+    border-left: 5px solid black;
+}
+
+.newGameButton {
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(149, 149, 149, 0.3);
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Fredoka', sans-serif;;
+}
+
+.newGameButton:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.newGameButton:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.winningCell {
+    background-color: rgba(25, 198, 25, 0.682);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: rgba(25, 198, 25, 0.9);
+    }
+
+    50% {
+        background-color: rgba(50, 218, 50, 0.7);
+    }
+
+    100% {
+        background-color: rgba(25, 198, 25, 0.9);
+    }
+}
+
+.winningPlayer {
+    background-color: rgba(25, 198, 25, 0.667);
+    transition: .3s;
+    transform: scale(1.05);
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.gameDrawn {
+    background-color: rgba(207, 201, 25, 0.5);
+    transition: .3s;
+    transform: scale(1.05);
+    border-radius: 6px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 990px) {
+    body {
+      background-size: 400% 500%;
+      animation: gradient 25s ease infinite;
+    }
+  
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  
+    .fullGameContainer {
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  
+    .gameOuterContainer {
+      order: 1;
+      margin-bottom: 20px;
+    }
+  
+    .playerSection1 {
+      order: 2;
+      position: absolute;
+      left: 25%;
+      bottom: 5%;
+    }
+  
+    .playerSection2 {
+      order: 3;
+      position: absolute;
+
+      right: 25%;
+      bottom: 5%;
+    }
+    
+  
+    .newGameButton {
+      order: 4;
+      margin-top: 20px;
+      padding-top: 8px;
+      padding-bottom: 6px;
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: .9rem;
+    }
+  
+    .gameBoardSection {
+      padding: 10px;
+    }
+  
+    .gameCell {
+      min-width: 80px;
+      height: 80px;
+    }
+
+    .displayedName {
+        font-size: .95rem;
+    }
+    .imgSection1 {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .imgSection2 {
+        width: 80px;
+        height: 80px;
+    }
+    
+
+    .gameCell img {
+        max-width: 70px;
+        max-height: 70px;
+      }
+
+      .currentPlayerTurn{
+        transform: scale(1.03);
+        margin-top: 20px;
+    }
+}
+  
+  
+@media (max-width: 740px) {
+    .playerSection1 {
+        left: 20%;
+        bottom: 5%;
+      }
+    
+      .playerSection2 {
+  
+        right: 20%;
+        bottom: 5%;
+      }
+}
+
+@media (max-width: 580px) {
+    .playerSection1 {
+        left: 15%;
+      }
+    
+      .playerSection2 {
+  
+        right: 15%;
+      }
+}
+
+@media (max-width: 420px) {
+    .playerSection1 {
+        left: 5%;
+      }
+    
+      .playerSection2 {
+  
+        right: 5%;
+      }
+}
+
+@media (max-height: 750px) and (max-width: 400px) {
+    .playerSection1 {
+        bottom: 1%;
+      }
+    
+      .playerSection2 {
+        bottom: 1%;
+      }
+
+      .headingImage {
+        width: 75px;
+        height: auto;
+        margin-bottom: -20px;
+        margin-top: -5px;
+
+    }
+    .newGameButton {
+        padding-top: 6px;
+        padding-bottom: 4px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: .9rem;
+        margin-top: 10px;
+    }
+
+
+}
+
+@media screen and (min-width: 600px) and (max-height: 440px) {
+    .playerSection1 {
+        left: 5%;
+        bottom: 0;
+        top: 35%;
+
+      }
+    
+      .playerSection2 {
+        right: 5%;
+        bottom: 0;
+        top: 35%;
+      }
+  }
+  
