@@ -251,7 +251,7 @@ td {
       order: 2;
       position: absolute;
       left: 25%;
-      bottom: 5%;
+      bottom: 3%;
     }
   
     .playerSection2 {
@@ -259,7 +259,7 @@ td {
       position: absolute;
 
       right: 25%;
-      bottom: 5%;
+      bottom: 3%;
     }
     
   
@@ -311,13 +311,13 @@ td {
 @media (max-width: 740px) {
     .playerSection1 {
         left: 20%;
-        bottom: 5%;
+        bottom: 2%;
       }
     
       .playerSection2 {
   
         right: 20%;
-        bottom: 5%;
+        bottom: 2%;
       }
 }
 
