@@ -15,10 +15,57 @@
 <body>
 
     <header>
-        <div class="resetButton circleButton" title="Reset Game">&#x21BA</div>
+        <div class="smileButton circleButton" title="Click Me">&#x263A</div>
         <img src="./assets/images/logo.png" alt="Tic Tac Toe Logo" class="headingImage">
-        <div class="helpButton circleButton" title="Help">&#128712</div>
+        <div class="helpButton circleButton" title="Help">?</div>
     </header>
+
+<div class="modalContainer">
+    <div class="modal">
+        <div class="infoSection">
+            <h3>Welcome to Tic Tac Toe!</h3>
+            <h4 class="popupHeading">Game Types:</h4>
+            <div class="popupSection">
+                - 2 Player: Challenge a friend and showcase your strategic skills.<br/>
+                - VS CPU: Test your abilities against the CPU.<br/>
+                <span>Use the Game Type selector to choose.</span>
+
+            </div>
+
+            <h4 class="popupHeading">Display Name:</h4>
+            <div class="popupSection">
+                - Want to jazz up your name? Click on the pencil icon to update your display name. <br/>
+                - Sorry CPU, you're stuck with your default name. Tough luck!
+            </div>
+
+            <h4 class="popupHeading">Starting a Game:</h4>
+            <div class="popupSection">
+                - Ready to play? Simply hit the "New Game" button to start.<br/>
+                - The Game will randomly pick someone to start. The selected player's name and shape will be highlighted. It's their turn!
+            </div>
+
+            <h4 class="popupHeading">Objective:</h4>
+            <div class="popupSection">
+                The goal is simple: To win, Simply get three of your shapes in a row, vertically, horizontally, or diagonally.
+            </div>
+
+
+            <h5>For a nice suprise click the smiley button. <span class="smileSpan">&#x263A</span></h5>
+
+        </div><br/>
+        <button class="closePopUp">OK</button>
+    </div>
+</div>
+
+    <div class="smileModal">
+        <div class="smileInfo">I don't do anything. <br/>
+            I'm just here to spread some joy. <br/>
+            Have a great day! <br/>🙂😊😀</div>
+        <button class="smileCloseButton">OK</button>
+    </div>
+
+
+
 
     <div class="gametypeContainer">
         <div class="gameTypeLabel">Game Type:</div>
@@ -31,7 +78,7 @@
     <div class="fullGameContainer">
 
         <section class="playerSection1">
-            <h2 class="displayedName">Player 1 <span class="editName" title="Edit name">&#x270E</span></h2>
+            <h2 class="displayedName player1Name">Player 1 <span class="editName p1Edit" title="Edit name">&#x270E</span></h2>
             <img src="./assets/images/circle.png" alt="Circle" class="imgSection1">
             <div class="player1Turn"></div>
 
@@ -75,6 +122,8 @@
 
 
     <script src="./app.js"></script>
+    <script src="./app2.js"></script>
+
 </body>
 
 </html>
