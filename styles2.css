@@ -37,9 +37,7 @@
     padding-left: 25px;
     padding-right: 25px;
     transform: translateX(-10px);
-
 }
-
 
 .vsCPUSelected,
 .twoPlayerSelected  {
@@ -50,10 +48,7 @@
     padding-right: 15px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     font-weight: 700;
-
 }
-
-
 
 .twoPlayerNotSelected,
 .vsCPUNotSelected {
