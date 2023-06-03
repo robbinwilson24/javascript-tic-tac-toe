@@ -1,0 +1,64 @@
+.gametypeContainer {
+    margin-top: -15px;
+    margin-bottom: -5px;
+}
+
+.gameTypeLabel {
+    text-align: center;
+    padding-bottom: 2px;
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+.gameTypeSelector {
+    display: flex;
+}
+
+.gameSelectOption {
+    padding: 3px;
+    padding-top: 4px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.gameTypeSelector {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .6rem;
+    transition: .3s;
+}
+
+.twoPlayerSelector {
+    padding-right: 25px;
+    padding-left: 25px;
+    transform: translateX(12px);
+}
+
+.CPUSelector {
+    padding-left: 25px;
+    padding-right: 25px;
+    transform: translateX(-10px);
+
+}
+
+
+.vsCPUSelected,
+.twoPlayerSelected  {
+    z-index: 5;
+    transition: .2s;
+    background-color: rgb(234, 234, 234);
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+
+}
+
+
+
+.twoPlayerNotSelected,
+.vsCPUNotSelected {
+    z-index: 4;
+    transition: .2s;
+    background-color: rgb(155, 155, 155);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+}

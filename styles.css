@@ -26,16 +26,56 @@ body {
     }
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .headingImage {
-    width: 80px;
+    width: 65px;
     height: auto;
     display: block;
     margin: 0 auto;
     margin-bottom: 10px;
+}
 
+.circleButton {
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(149, 149, 149, 0.3);
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: .2s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 
 }
 
+.circleButton:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.circleButton:active {
+    background-color: rgba(255, 255, 255, 0.3);
+
+}
+
+.helpButton{
+    padding-bottom: 1px;
+    margin-left: 75px;
+}
+
+.resetButton {
+    margin-right: 75px;
+}
 
 .fullGameContainer {
     display: flex;
@@ -244,13 +284,6 @@ td {
         animation: gradient 25s ease infinite;
     }
 
-    header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
     .fullGameContainer {
         flex-direction: column;
         align-items: center;
@@ -261,7 +294,6 @@ td {
     .gameOuterContainer {
         order: 1;
         margin-bottom: 20px;
-        margin-top: -15px;
     }
 
     .playerSection1 {
@@ -292,6 +324,7 @@ td {
 
     .gameBoardSection {
         padding: 10px;
+        margin-top: -2px;
     }
 
     .gameCell {
@@ -323,6 +356,14 @@ td {
         transform: scale(1.03);
         margin-top: 20px;
     }
+
+    .helpButton{
+        margin-left: 35px;
+    }
+    
+    .resetButton {
+        margin-right: 35px;
+    }
 }
 
 
@@ -341,6 +382,8 @@ td {
         right: 20%;
         bottom: -2%;
     }
+
+
 }
 
 @media (max-width: 580px) {
@@ -369,9 +412,9 @@ td {
 
 
     .headingImage {
-        width: 70px;
+        width: 50px;
         height: auto;
-        margin-bottom: -15px;
+        margin-bottom: -2px;
         margin-top: -5px;
 
     }
