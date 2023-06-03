@@ -11,7 +11,6 @@ let CPUSelector = document.querySelector(".CPUSelector");
 let cpuName = document.querySelector(".cpuName");
 let CPUEdit = document.querySelector(".CPUEdit")
 
-
 let gameStarted = false;
 let gameOver = false;
 
@@ -36,7 +35,6 @@ let gameType = "twoPlayer";
 let player1Array = [];
 let player2Array = [];
 
-
 twoPlayerSelector.addEventListener("click", function () {
     twoPlayerSelector.classList.add("twoPlayerSelected");
     twoPlayerSelector.classList.remove("twoPlayerNotSelected");
@@ -58,9 +56,6 @@ twoPlayerSelector.addEventListener("click", function () {
     }
 });
 
-
-
-
 CPUSelector.addEventListener("click", function () {
     CPUSelector.classList.add("vsCPUSelected");
     CPUSelector.classList.remove("vsCPUNotSelected");
@@ -76,8 +71,6 @@ CPUSelector.addEventListener("click", function () {
     }
 });
 
-
-
 //A function to reset the game and start a new game. 
 function newGame() {
 
@@ -92,6 +85,7 @@ function newGame() {
     player2Section.classList.remove("gameDrawn");
     player1Section.classList.remove("currentPlayerTurn");
     player2Section.classList.remove("currentPlayerTurn");
+
 
     //Remove messages from player sections and clear arrays 
     player1Turn.textContent = "";
