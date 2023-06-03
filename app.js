@@ -2,17 +2,24 @@ let heading = document.querySelector("#mainHeading");
 let newGameButton = document.querySelector(".newGameButton");
 let player1Turn = document.querySelector(".player1Turn");
 let player2Turn = document.querySelector(".player2Turn");
-let gameCell = document.querySelectorAll(".gameCell");
-let editNameSpan = document.querySelectorAll(".editName");
 let player2Section = document.querySelector(".playerSection2");
 let player1Section = document.querySelector(".playerSection1");
 let twoPlayerSelector = document.querySelector(".twoPlayerSelector");
 let CPUSelector = document.querySelector(".CPUSelector");
 let cpuName = document.querySelector(".cpuName");
-let CPUEdit = document.querySelector(".CPUEdit")
+let CPUEdit = document.querySelector(".CPUEdit");
+let p1Edit = document.querySelector(".p1Edit");
+
+let gameCell = document.querySelectorAll(".gameCell");
+let editNameSpan = document.querySelectorAll(".editName");
 
 let gameStarted = false;
 let gameOver = false;
+
+// variable that will be updated with whose turn it is. 
+let currentTurn;
+//variable for what type of game it is
+let gameType = "twoPlayer";
 
 //An array of winnign combinations
 const winningCombinations = [
@@ -26,14 +33,10 @@ const winningCombinations = [
     [3, 5, 7]
 ]
 
-// variable that will be updated with whose turn it is. 
-let currentTurn;
-//variable for what type of game it is
-let gameType = "twoPlayer";
-
 //Arrays for the user choices to be sent to, each square in the tictactoe board has a value, these will be used to check for winning combinations 
 let player1Array = [];
 let player2Array = [];
+
 
 twoPlayerSelector.addEventListener("click", function () {
     twoPlayerSelector.classList.add("twoPlayerSelected");
@@ -54,6 +57,18 @@ twoPlayerSelector.addEventListener("click", function () {
         playerName.appendChild(newSpan);
         newSpan.addEventListener("click", changeName);
     }
+
+       // Check if the player 1 edit span already exists to add it back when the player switches to 2 player mode
+       const p1EditSpan = document.querySelector(".editName.p1Edit");
+       if (!p1EditSpan) {
+           const p1PlayerName = document.querySelector(".displayedName");
+           const newP1Span = document.createElement("span");
+           newP1Span.className = "editName p1Edit";
+           newP1Span.title = "Edit name";
+           newP1Span.innerHTML = "&#x270E";
+           p1PlayerName.appendChild(newP1Span);
+           newP1Span.addEventListener("click", changeName);
+       }
 });
 
 CPUSelector.addEventListener("click", function () {
