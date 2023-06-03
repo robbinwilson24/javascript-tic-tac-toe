@@ -30,6 +30,7 @@ header{
     font-family: Arial, Helvetica, sans-serif;
     font-size: .6rem;
     transition: .3s;
+    z-index: 99998;
 }
 
 .twoPlayerSelector {
@@ -170,7 +171,7 @@ header{
     background-color: rgb(240, 240, 240);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
-    top: 3%;
+    top: -200px;
     left: 5%;
     transition: opacity 0.3s ease-in-out;
 }
@@ -178,6 +179,7 @@ header{
 .smileModal.show {
     opacity: 1;
     z-index: 9999;
+    top: 3%;
 }
 
 .smileInfo {
