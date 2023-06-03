@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&display=swap');
 
 body {
-    background: linear-gradient(175deg, rgba(185, 34, 34, .6), rgba(201, 101, 116, .6), rgba(57, 102, 121, .6), rgba(96, 155, 139, .6), rgba(174, 179, 123, .6), rgba(239, 211, 96, .6), rgba(128, 87, 188, .6), rgba(214, 165, 77, .6));
-    background-size: 400% 400%;
-    animation: gradient 25s ease infinite;
+    background: linear-gradient(195deg, rgba(185, 34, 34, .6), rgba(201, 101, 116, .6), rgba(57, 102, 121, .6), rgba(96, 155, 139, .6), rgba(174, 179, 123, .6), rgba(239, 211, 96, .6), rgba(128, 87, 188, .6), rgba(214, 165, 77, .6));
+    background-size: 300% 400%;
+    animation: gradient 22s ease infinite;
     font-family: 'Fredoka', sans-serif;
     display: flex;
     flex-direction: column;
@@ -44,8 +44,8 @@ header {
 .circleButton {
     font-size: 1.25rem;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.4);
     border-color: rgba(149, 149, 149, 0.3);
     width: 25px;
@@ -68,13 +68,14 @@ header {
 
 }
 
-.helpButton{
+.helpButton {
     padding-bottom: 1px;
     margin-left: 75px;
 }
 
-.resetButton {
+.smileButton {
     margin-right: 75px;
+    padding-bottom: 1px;
 }
 
 .fullGameContainer {
@@ -116,7 +117,7 @@ header {
     font-size: .85rem;
 }
 
-.editName{
+.editName {
     font-size: 1rem;
 }
 
@@ -221,15 +222,15 @@ td {
     display: block;
     margin: 0 auto;
     margin-top: 40px;
-    padding-top: 10px;
-    padding-bottom: 8px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: rgba(255, 255, 255, 0.4);
     border-color: rgba(149, 149, 149, 0.3);
     border-radius: 25px;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: .9rem;
     cursor: pointer;
     font-family: 'Fredoka', sans-serif;
     z-index: 100;
@@ -357,10 +358,14 @@ td {
         margin-top: 20px;
     }
 
-    .helpButton{
+    .helpButton {
         margin-left: 35px;
     }
-    
+
+    .smileButton {
+        margin-right: 35px;
+    }
+
     .resetButton {
         margin-right: 35px;
     }
@@ -415,6 +420,7 @@ td {
         margin-bottom: -2px;
         margin-top: -5px;
     }
+
     .newGameButton {
         padding-top: 6px;
         padding-bottom: 4px;

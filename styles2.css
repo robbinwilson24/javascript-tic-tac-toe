@@ -1,3 +1,7 @@
+header{
+    z-index: 9998;
+}
+
 .gametypeContainer {
     margin-top: -15px;
     margin-bottom: -5px;
@@ -13,6 +17,7 @@
 .gameTypeSelector {
     display: flex;
 }
+
 
 .gameSelectOption {
     padding: 3px;
@@ -56,4 +61,153 @@
     transition: .2s;
     background-color: rgb(155, 155, 155);
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.modalContainer {
+    display: none;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: top 0.3s;
+  }
+  
+  .modalContainer.open {
+    top: 0;
+    z-index: 99999;
+
+  }
+  
+  .modal {
+    padding-right: 20px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s, opacity 0.3s;
+    max-width: 600px;
+    height: 330px;
+    margin: auto;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    background-color: rgb(235, 235, 235);
+  }
+  
+  .modalContainer.open .modal {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  
+  .infoSection {
+    overflow-y: auto;
+    height: 80%;
+  }
+  
+
+.modal .infoSection {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+.modal .infoSection::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .modal .infoSection::-webkit-scrollbar-track {
+    background-color: rgb(235, 235, 235);
+  }
+  
+  .modal .infoSection::-webkit-scrollbar-thumb {
+    background-color: rgb(150, 150, 150);
+    border-radius: 5px;
+    transition: .2s;
+
+  }
+  
+  .modal::-webkit-scrollbar-thumb:hover {
+    transition: .2s;
+    background-color: rgb(120, 120, 120);
+  }
+
+  .closePopUp {
+    width: 60px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(149, 149, 149, 0.3);
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: .8rem;
+    cursor: pointer;
+    font-family: 'Fredoka', sans-serif;
+  }
+
+  .closePopUp:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.closePopUp:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.smileModal {
+    opacity: 0;
+    font-size: .8rem;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    z-index: 101;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    top: 3%;
+    left: 5%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.smileModal.show {
+    opacity: 1;
+    z-index: 9999;
+}
+
+.smileInfo {
+    margin-bottom: 10px;
+}
+
+
+.smileCloseButton{
+    width: 45px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(149, 149, 149, 0.3);
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: .7rem;
+    cursor: pointer;
+    font-family: 'Fredoka', sans-serif;
+    margin: 0 auto;
+}
+
+@media (max-width: 770px) {
+    .modal {
+        padding-right: 10px;
+        padding-left: 20px;
+        padding-bottom: 5px;
+        min-width: 280px;
+        font-size: .8rem;
+      }
+    
 }
