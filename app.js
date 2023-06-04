@@ -9,6 +9,7 @@ let CPUSelector = document.querySelector(".CPUSelector");
 let cpuName = document.querySelector(".cpuName");
 let CPUEdit = document.querySelector(".CPUEdit");
 let p1Edit = document.querySelector(".p1Edit");
+let player1Name = document.querySelector(".player1Name")
 
 let gameCell = document.querySelectorAll(".gameCell");
 let editNameSpan = document.querySelectorAll(".editName");
@@ -45,6 +46,7 @@ twoPlayerSelector.addEventListener("click", function () {
     CPUSelector.classList.add("vsCPUNotSelected");
     gameType = "twoPlayer";
     cpuName.textContent = "Player 2";
+    player1Name.innerText = "Player 1";
 
     // Check if the edit span already exists to add it back when the player switches back to 2 player mode 
     const editSpan = document.querySelector(".editName");
@@ -78,6 +80,7 @@ CPUSelector.addEventListener("click", function () {
     twoPlayerSelector.classList.add("twoPlayerNotSelected");
     gameType = "vsCPU";
     cpuName.textContent = "CPU";
+    player1Name.innerText = "YOU";
 
     // Remove the edit span if it exists - as CPU will not have its display name edited 
     const editSpan = document.querySelector(".editName");
@@ -87,6 +90,7 @@ CPUSelector.addEventListener("click", function () {
 });
 
 //A function to reset the game and start a new game. 
+
 function newGame() {
 
     //generate a random number to determine who starts
@@ -157,7 +161,7 @@ function checkWin() {
             }
             player2Turn.textContent = "";
             player1Turn.textContent = "";
-            player1Turn.textContent = "YOU WIN!.";      // Show that player 1 has won 
+            player1Turn.textContent = "YOU WIN!";      // Show that player 1 has won 
             player2Turn.textContent = "";
             gameOver = true;
             //remove current turn classes from both players and add a winning player class to the winner (the same on both players)
@@ -178,7 +182,7 @@ function checkWin() {
             }
             player2Turn.textContent = "";
             player1Turn.textContent = "";
-            player2Turn.textContent = "YOU WIN!.";      // Show that player 2 has won 
+            player2Turn.textContent = "YOU WIN!";      // Show that player 2 has won 
             player1Turn.textContent = "";
             gameOver = true;
             player1Section.classList.remove("currentPlayerTurn");
@@ -205,13 +209,15 @@ function checkWin() {
 }
 
 // a function that allows the cpu to play a move on its own. 
-function CPUPlay() {
-    //generate random number , and use that number to target the relevant game cell. 
-    let randomNum = Math.floor(Math.random() * 8);
 
-    //if the game cell is blank, then add CPU shape to cell.
-    // perform all other necessary logic.
-    if (gameCell[randomNum].innerHTML === "") {
+function CPUPlay() {
+    // Check the number of moves made by player 1
+    if (player1Array.length < 2) {
+      // Player 1 has made less than 2 moves, so CPU plays a random move
+      let randomNum = Math.floor(Math.random() * 9);
+  
+      // If the game cell is blank, then add CPU shape to cell
+      if (gameCell[randomNum].innerHTML === "") {
         let player2Shape = document.createElement("img");
         player2Shape.src = "./assets/images/cross.png";
         gameCell[randomNum].appendChild(player2Shape);
@@ -222,11 +228,115 @@ function CPUPlay() {
         player1Turn.textContent = "Your turn.";
         player2Turn.textContent = "";
         checkWin();
+      } else {
+        // If the random cell is not blank, call the function again
+        CPUPlay();
+      }
     } else {
-        //if the random cell is not blank then the function is recursively called again. 
-        CPUPlay()
+      // Player 1 has made 2 or more moves
+      //array for moves made by player
+      let availableCells = [];
+      for (let cell of gameCell) {
+        if (cell.innerHTML === "") {
+          availableCells.push(cell);
+        }
+      }
+  
+      let selectedCell = null;
+  
+      if (Math.random() < 0.5) {
+        // if the random number is less than .5 then cpu plays a move without logic
+        // 50% chance of the game making the best possible move 
+        let randomIndex = Math.floor(Math.random() * availableCells.length);
+        selectedCell = availableCells[randomIndex];
+      } else {
+        // Else CPU will check if any move by CPU can block player 1 from winning
+        for (let cell of availableCells) {
+          let cellValue = Number(cell.getAttribute("value"));
+          //temporarily add a winning value to the player1array
+          player1Array.push(cellValue);
+  
+          // CPU will check if player 1 has a winning combination by comparing the made moves to the moves in the winnign combinations array 
+          let canBlockWin = winningCombinations.some((combination) => {
+            return combination.every((cell) => player1Array.includes(cell));
+          });
+          
+          //remove the temporary value from the player1array
+          player1Array.pop();
+  
+          if (canBlockWin) {
+            selectedCell = cell;
+            break;
+          }
+        }
+  
+        // If no move can block the player, then the cpu will select a cell that leads to a winning combination for CPU
+        if (!selectedCell) {
+          for (let cell of availableCells) {
+            let cellValue = Number(cell.getAttribute("value"));
+            // add a temporary value to the player2array for a winning combination
+            player2Array.push(cellValue);
+  
+            // The CPU will check if it has a winning combination
+            let canWin = winningCombinations.some((combination) => {
+              return combination.every((cell) => player2Array.includes(cell));
+            });
+            //remove the temporary value from the player 2 array 
+            player2Array.pop();
+  
+            if (canWin) {
+              selectedCell = cell;
+              break;
+            }
+          }
+        }
+      }
+  
+      // If no winning move is possible the CPU selects a random cell to play 
+      if (!selectedCell) {
+        let randomIndex = Math.floor(Math.random() * availableCells.length);
+        selectedCell = availableCells[randomIndex];
+      }
+  
+      // Add the CPU shape to the relevant cell
+      let player2Shape = document.createElement("img");
+      player2Shape.src = "./assets/images/cross.png";
+      selectedCell.appendChild(player2Shape);
+      player2Array.push(Number(selectedCell.getAttribute("value")));
+      currentTurn = "player1";
+      player1Section.classList.add("currentPlayerTurn");
+      player2Section.classList.remove("currentPlayerTurn");
+      player1Turn.textContent = "Your turn.";
+      player2Turn.textContent = "";
+      checkWin();
     }
-}
+  }
+  
+
+
+
+// function CPUPlay() {
+//     //generate random number , and use that number to target the relevant game cell. 
+//     let randomNum = Math.floor(Math.random() * 8);
+
+//     //if the game cell is blank, then add CPU shape to cell.
+//     // perform all other necessary logic.
+//     if (gameCell[randomNum].innerHTML === "") {
+//         let player2Shape = document.createElement("img");
+//         player2Shape.src = "./assets/images/cross.png";
+//         gameCell[randomNum].appendChild(player2Shape);
+//         player2Array.push(Number(gameCell[randomNum].getAttribute("value")));
+//         currentTurn = "player1";
+//         player1Section.classList.add("currentPlayerTurn");
+//         player2Section.classList.remove("currentPlayerTurn");
+//         player1Turn.textContent = "Your turn.";
+//         player2Turn.textContent = "";
+//         checkWin();
+//     } else {
+//         //if the random cell is not blank then the function is recursively called again. 
+//         CPUPlay()
+//     }
+// }
 
 
 
@@ -299,20 +409,20 @@ for (let cell of gameCell) {
 
 
 // A function to allow users to change their name on the screen 
+
 function changeName() {
     let nameElement = this.parentNode;
     let currentName = nameElement.innerText;
     let newName = prompt(`Please enter your name, ${currentName}`);
 
     if (newName === null) {
-        nameElement.innerText = currentName;
-        return;
+        return; // Exit the function without making any changes
     }
 
     // Limit the user input name to 12 characters and trim blank space
     newName = newName.trim().substring(0, 12);
 
-    //some defensive programming for if the name is blank 
+    // Some defensive programming for if the name is blank 
     if (newName === "") {
         alert("Name cannot be blank. Please enter a valid name:");
     } else {
@@ -326,9 +436,17 @@ function changeName() {
 
         // Attach the click event listener to the new span
         newSpan.addEventListener("click", changeName);
+
+        // Remove the existing edit span before appending the new one
+        const existingEditSpan = nameElement.querySelector(".editName");
+        if (existingEditSpan) {
+            existingEditSpan.remove();
+        }
+
         nameElement.append(newSpan);
     }
 }
+
 for (let span of editNameSpan) {
     span.addEventListener("click", changeName);
 }
