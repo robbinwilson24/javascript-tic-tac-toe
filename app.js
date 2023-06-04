@@ -314,32 +314,6 @@ function CPUPlay() {
   
 
 
-
-// function CPUPlay() {
-//     //generate random number , and use that number to target the relevant game cell. 
-//     let randomNum = Math.floor(Math.random() * 8);
-
-//     //if the game cell is blank, then add CPU shape to cell.
-//     // perform all other necessary logic.
-//     if (gameCell[randomNum].innerHTML === "") {
-//         let player2Shape = document.createElement("img");
-//         player2Shape.src = "./assets/images/cross.png";
-//         gameCell[randomNum].appendChild(player2Shape);
-//         player2Array.push(Number(gameCell[randomNum].getAttribute("value")));
-//         currentTurn = "player1";
-//         player1Section.classList.add("currentPlayerTurn");
-//         player2Section.classList.remove("currentPlayerTurn");
-//         player1Turn.textContent = "Your turn.";
-//         player2Turn.textContent = "";
-//         checkWin();
-//     } else {
-//         //if the random cell is not blank then the function is recursively called again. 
-//         CPUPlay()
-//     }
-// }
-
-
-
 // Add an event listener to the game board cells that will add the relevant shape to the clicked cell based on whose turn it is.
 for (let cell of gameCell) {
     cell.addEventListener("click", function () {
