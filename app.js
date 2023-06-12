@@ -40,6 +40,13 @@ let player2Array = [];
 
 
 twoPlayerSelector.addEventListener("click", function () {
+
+    for (let cell of gameCell) {
+        cell.innerHTML = "";
+        cell.classList.remove("winningCell");
+    }
+
+
     twoPlayerSelector.classList.add("twoPlayerSelected");
     twoPlayerSelector.classList.remove("twoPlayerNotSelected");
     CPUSelector.classList.remove("vsCPUSelected");
@@ -74,6 +81,14 @@ twoPlayerSelector.addEventListener("click", function () {
 });
 
 CPUSelector.addEventListener("click", function () {
+
+    //Clear board
+    for (let cell of gameCell) {
+        cell.innerHTML = "";
+        cell.classList.remove("winningCell");
+    }
+
+
     CPUSelector.classList.add("vsCPUSelected");
     CPUSelector.classList.remove("vsCPUNotSelected");
     twoPlayerSelector.classList.remove("twoPlayerSelected");
@@ -244,9 +259,9 @@ function CPUPlay() {
   
       let selectedCell = null;
   
-      if (Math.random() < 0.5) {
-        // if the random number is less than .5 then cpu plays a move without logic
-        // 50% chance of the game making the best possible move 
+      if (Math.random() < 0.20) {
+        // if the random number is less than .2 then cpu plays a move without logic
+        // 80% chance of the game making the best possible move 
         let randomIndex = Math.floor(Math.random() * availableCells.length);
         selectedCell = availableCells[randomIndex];
       } else {
